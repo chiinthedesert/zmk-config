@@ -1,0 +1,105 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/{
+    behaviors {
+        m: mod-tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
+            flavor = "balanced";
+            require-prior-idle-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
+        ltc: layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_sys {
+            timeout-ms = <50>;
+            key-positions = <37 38 39>; 
+            bindings = <&mo 4>; 
+        };
+    };
+
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  '  | ENT  |
+// | CTRL |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
+// | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |   | BKSP| RSE  | ALT |
+            bindings = <
+&kp TAB    &kp Q     &kp W     &kp F      &kp P      &kp B   &kp J &kp L      &kp U       &kp Y     &kp SQT   &kp ENT
+&caps_word &m LGUI A &m LALT R &m LSHFT S &m LCTRL T &kp G   &kp M &m RCTRL N &m RSHFT E  &m RALT I &m RGUI O &kp SQT
+&kp LSHFT  &kp Z     &kp X     &kp C      &kp D      &kp V   &kp K &kp H      &kp COMMA   &kp DOT   &kp FSLH  &kp ESC
+                  &ltc 3 TAB &kp SPACE &kp ENT   &kp SEMI &ltc 2 BSPC &ltc 1 ESC
+            >;
+        };
+
+        nums {
+//  -----------------------------------------------------------------------------------------
+//  |     |  7  |  8  |  9  |  0  |     | HOME | PGDN | PGUP | END  |     |
+//  |  0  |  4  |  5  |  6  |  .  |     | LEFT | DOWN |  UP  | RGHT |     |
+//  |     |  1  |  2  |  3  |  ,  |     | DEL  | BSPC | INS  | CAPS |     |
+//                 | TAB | SPC | ENT | SEMI | SYM | ESC |
+            bindings = <
+&trans &trans &kp N7 &kp N8 &kp N9 &kp N0        &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
+&trans &kp N0 &kp N4 &kp N5 &kp N6 &kp DOT       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
+&trans &trans &kp N1 &kp N2 &kp N3 &kp COMMA     &kp DEL  &kp BSPC  &kp INS   &kp CAPS  &trans &trans
+                   &trans  &trans  &trans       &trans  &trans  &trans
+            >;
+        };
+
+
+        syms {
+//  -----------------------------------------------------------------------------------------
+//  |  ~  |  !  |  @  |  #  |  ^  |     |  $  |  &  |  *  |  ?  |  |  |
+//  |  [  |  {  |  (  |  <  |  +  |     |  =  |  >  |  )  |  }  |  ]  |
+//  |  \  |  _  |  -  |  %  |  :  |     |  /  |  '  |  "  |  .  |  ,  |
+//                 | TAB | SPC | ENT | SEMI | SYM | ESC |
+            bindings = <
+&trans &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp CARET     &kp DLLR  &kp AMPS  &kp ASTRK &kp QMARK &kp PIPE   &trans
+&trans &kp LBKT  &kp LBRC  &kp LPAR  &kp LT    &kp PLUS      &kp EQUAL &kp GT    &kp RPAR  &kp RBRC  &kp RBKT   &trans
+&trans &kp BSLH  &kp UNDER &kp MINUS &kp PRCNT &kp COLON     &kp FSLH  &kp SQT   &kp DQT   &kp DOT   &kp COMMA  &trans
+                          &trans    &trans    &trans        &trans    &trans    &trans
+            >;
+        };
+
+        others {
+//  -----------------------------------------------------------------------------------------
+//  |     | F12 | F7  | F8  | F9  |     | BT1  | BT2  | BT3  | BT4  | BTCLR |     |
+//  |     | F11 | F4  | F5  | F6  |     | MUTE | VOLDN| VOLUP| PREV | NEXT  |     |
+//  |     | F10 | F1  | F2  | F3  |     | BRIDN| BRIUP| PSCRN| PLAY | SLEEP |     |
+//                    |     |     |     |      |      |      |
+            bindings = <
+&trans &trans &kp F7 &kp F8 &kp F9 &kp F12      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR  &trans
+&trans &trans &kp F4 &kp F5 &kp F6 &kp F11      &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV   &kp C_NEXT  &trans
+&trans &trans &kp F1 &kp F2 &kp F3 &kp F10      &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN    &kp C_PP     &kp C_SLEEP &trans
+                    &trans  &trans  &trans   &trans &trans  &trans
+            >;
+        };
+
+        sys {
+            bindings = <
+&none &none &none &none &none &none    &none &none &none &none &none &sys_reset
+&none &none &none &none &none &none    &none &none &none &none &none &bootloader
+&none &none &none &none &none &none    &none &none &none &none &none &soft_off
+                  &none &none &none    &none &none &none
+            >;
+        };
+    };
+};
