@@ -37,6 +37,7 @@
         compatible = "zmk,keymap";
 
         base {
+            display-name = "base";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L  |  U  |  Y  |  '  | RET  |
 // | CTRL |  A  |  R  |  S  |  T  |  G  |   |  M  |  N  |  E  |  I  |  O  |  '   |
@@ -51,6 +52,7 @@
         };
 
         nums {
+            display-name = "nums";
 //  -----------------------------------------------------------------------------------------
 //  |     |  7  |  8  |  9  |  0  |     | HOME | PGDN | PGUP | END  |     |
 //  |  0  |  4  |  5  |  6  |  .  |     | LEFT | DOWN |  UP  | RGHT |     |
@@ -66,6 +68,7 @@
 
 
         syms {
+            display-name = "syms";
 //  -----------------------------------------------------------------------------------------
 //  |  ~  |  !  |  @  |  #  |  ^  |     |  $  |  &  |  *  |  ?  |  |  |
 //  |  [  |  {  |  (  |  <  |  +  |     |  =  |  >  |  )  |  }  |  ]  |
@@ -80,6 +83,7 @@
         };
 
         others {
+            display-name = "others";
 //  -----------------------------------------------------------------------------------------
 //  |     | F12 | F7  | F8  | F9  |     | BT1  | BT2  | BT3  | BT4  | BTCLR |     |
 //  |     | F11 | F4  | F5  | F6  |     | MUTE | VOLDN| VOLUP| PREV | NEXT  |     |
@@ -94,6 +98,7 @@
         };
 
         sys {
+            display-name = "sys";
             bindings = <
 &none &none &none &none &none &none    &none &none &none &none &none &sys_reset
 &none &none &none &none &none &none    &none &none &none &none &none &bootloader
