@@ -38,15 +38,15 @@
 
         base {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  '  | ENT  |
-// | CTRL |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
-// | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | BKSP| RSE  | ALT |
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L  |  U  |  Y  |  '  | RET  |
+// | CTRL |  A  |  R  |  S  |  T  |  G  |   |  M  |  N  |  E  |  I  |  O  |  '   |
+// | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |   | BKSP| RSE | ALT |
             bindings = <
-&kp TAB    &kp Q     &kp W     &kp F      &kp P      &kp B   &kp J &kp L      &kp U       &kp Y     &kp SQT   &kp ENT
+&kp TAB    &kp Q     &kp W     &kp F      &kp P      &kp B   &kp J &kp L      &kp U       &kp Y     &kp SQT   &kp RET
 &caps_word &m LGUI A &m LALT R &m LSHFT S &m LCTRL T &kp G   &kp M &m RCTRL N &m RSHFT E  &m RALT I &m RGUI O &kp SQT
 &kp LSHFT  &kp Z     &kp X     &kp C      &kp D      &kp V   &kp K &kp H      &kp COMMA   &kp DOT   &kp FSLH  &kp ESC
-                  &ltc 3 TAB &kp SPACE &kp ENT   &kp SEMI &ltc 2 BSPC &ltc 1 ESC
+                  &ltc 3 TAB &kp SPACE &kp RET   &kp SEMI &ltc 2 BSPC &ltc 1 ESC
             >;
         };
 
@@ -55,7 +55,7 @@
 //  |     |  7  |  8  |  9  |  0  |     | HOME | PGDN | PGUP | END  |     |
 //  |  0  |  4  |  5  |  6  |  .  |     | LEFT | DOWN |  UP  | RGHT |     |
 //  |     |  1  |  2  |  3  |  ,  |     | DEL  | BSPC | INS  | CAPS |     |
-//                 | TAB | SPC | ENT | SEMI | SYM | ESC |
+//                 | TAB | SPC | RET | SEMI | SYM | ESC |
             bindings = <
 &trans &trans &kp N7 &kp N8 &kp N9 &kp N0        &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
 &trans &kp N0 &kp N4 &kp N5 &kp N6 &kp DOT       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
@@ -70,7 +70,7 @@
 //  |  ~  |  !  |  @  |  #  |  ^  |     |  $  |  &  |  *  |  ?  |  |  |
 //  |  [  |  {  |  (  |  <  |  +  |     |  =  |  >  |  )  |  }  |  ]  |
 //  |  \  |  _  |  -  |  %  |  :  |     |  /  |  '  |  "  |  .  |  ,  |
-//                 | TAB | SPC | ENT | SEMI | SYM | ESC |
+//                 | TAB | SPC | RET | SEMI | SYM | ESC |
             bindings = <
 &trans &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp CARET     &kp DLLR  &kp AMPS  &kp ASTRK &kp QMARK &kp PIPE   &trans
 &trans &kp LBKT  &kp LBRC  &kp LPAR  &kp LT    &kp PLUS      &kp EQUAL &kp GT    &kp RPAR  &kp RBRC  &kp RBKT   &trans
