@@ -100,9 +100,9 @@
         sys {
             display-name = "sys";
             bindings = <
-&none &none &none &none &none &none    &none &none &none &none &none &sys_reset
-&none &none &none &none &none &none    &none &none &none &none &none &bootloader
-&none &none &none &none &none &none    &none &none &none &none &none &soft_off
+&sys_reset  &none &none &none &none &none    &none &none &none &none &none &sys_reset
+&bootloader &none &none &none &none &none    &none &none &none &none &none &bootloader
+&soft_off   &none &none &none &none &none    &none &none &none &none &none &soft_off
                   &none &none &none    &none &none &none
             >;
         };
