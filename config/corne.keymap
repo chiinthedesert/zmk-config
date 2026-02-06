@@ -63,7 +63,7 @@
         compatible = "zmk,keymap";
 
         base {
-            display-name = "colemak-dh";
+            display-name = "colemak";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L  |  U  |  Y  |  '  | RET  |
 // | CTRL |  A  |  R  |  S  |  T  |  G  |   |  M  |  N  |  E  |  I  |  O  |  '   |
