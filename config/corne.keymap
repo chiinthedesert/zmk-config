@@ -73,7 +73,7 @@
 &kp TAB    &kp Q      &kp W      &kp F       &kp P       &kp B   &kp J  &kp L       &kp U       &kp Y      &kp SQT    &kp RET
 &caps_word &hl LGUI A &hl LALT R &hl LSHFT S &hl LCTRL T &kp G   &kp M  &hr RCTRL N &hr RSHFT E &hr RALT I &hr RGUI O &kp SQT
 &kp LSHFT  &kp Z      &kp X      &kp C       &kp D       &kp V   &kp K  &kp H       &kp COMMA   &kp DOT    &kp FSLH   &to 1
-                  &lm 4 TAB   &kp SPACE   &kp RET   &kp SEMI &lm 2 BSPC &lm 3 ESC
+                  &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &lm 2 BSPC &kp DEL
             >;
         };
 
@@ -83,7 +83,7 @@
 &kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp RET
 &caps_word &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &kp SQT
 &kp LSHFT  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
-                     &lm 4 TAB   &kp SPACE   &kp RET  &kp SEMI &lm 2 BSPC &lm 3 ESC
+                  &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &lm 2 BSPC &kp DEL
             >;
         };
 
