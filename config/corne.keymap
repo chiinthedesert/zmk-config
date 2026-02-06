@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 /{
     behaviors {
@@ -45,8 +46,8 @@
         pinky: pinky_master {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <175>;
-            flavor = "balanced";
+            tapping-term-ms = <150>;
+            flavor = "hold-preferred";
             bindings = <&mo>, <&td_sc>;
             retro-tap;
         };
@@ -75,7 +76,7 @@
             bindings = <
 &kp TAB    &kp Q      &kp W      &kp F       &kp P       &kp B   &kp J  &kp L       &kp U       &kp Y      &kp SQT    &kp BSPC
 &pinky 2 0 &hl LGUI A &hl LALT R &hl LSHFT S &hl LCTRL T &kp G   &kp M  &hr RCTRL N &hr RSHFT E &hr RALT I &hr RGUI O &pinky 2 0
-&kp LSHFT  &kp Z      &kp X      &kp C       &kp D       &kp V   &kp K  &kp H       &kp COMMA   &kp DOT    &kp FSLH   &to 1
+&ext_power EP_TOG  &kp Z      &kp X      &kp C       &kp D       &kp V   &kp K  &kp H       &kp COMMA   &kp DOT    &kp FSLH   &to 1
                   &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &kp BSPC &kp DEL
             >;
         };
@@ -85,7 +86,7 @@
             bindings = <
 &kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
 &pinky 2 0 &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &pinky 2 0
-&kp LSHFT  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
+&ext_power EP_TOG  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
                   &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &kp BSPC &kp DEL
             >;
         };
