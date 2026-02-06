@@ -70,7 +70,7 @@
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | BKSP| RSE | ALT |
             bindings = <
-&kp TAB    &kp Q      &kp W      &kp F       &kp P       &kp B   &kp J  &kp L       &kp U       &kp Y      &kp SQT    &kp RET
+&kp TAB    &kp Q      &kp W      &kp F       &kp P       &kp B   &kp J  &kp L       &kp U       &kp Y      &kp SQT    &kp BSPC
 &caps_word &hl LGUI A &hl LALT R &hl LSHFT S &hl LCTRL T &kp G   &kp M  &hr RCTRL N &hr RSHFT E &hr RALT I &hr RGUI O &kp SQT
 &kp LSHFT  &kp Z      &kp X      &kp C       &kp D       &kp V   &kp K  &kp H       &kp COMMA   &kp DOT    &kp FSLH   &to 1
                   &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &lm 2 BSPC &kp DEL
@@ -80,7 +80,7 @@
         qwerty {
             display-name = "qwerty";
             bindings = <
-&kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp RET
+&kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
 &caps_word &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &kp SQT
 &kp LSHFT  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
                   &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &lm 2 BSPC &kp DEL
@@ -135,7 +135,7 @@
         sys {
             display-name = "sys";
             bindings = <
-&sys_reset  &none &none &none &none &none    &none &none &none &none &none &sys_reset
+&sys_reset  &studio_unlock &none &none &none &none    &none &none &none &none &none &sys_reset
 &bootloader &none &none &none &none &none    &none &none &none &none &none &bootloader
 &soft_off   &none &none &none &none &none    &none &none &none &none &none &soft_off
                   &none &none &none    &none &none &none
