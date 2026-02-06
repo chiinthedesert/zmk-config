@@ -4,7 +4,7 @@
 
 /{
     behaviors {
-        m: mod-tap {
+        mt: mod-tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
@@ -13,7 +13,7 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
-        ltc: layer_tap {
+        lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
@@ -28,7 +28,7 @@
         combo_sys {
             timeout-ms = <50>;
             key-positions = <37 38 39>; 
-            bindings = <&mo 4>; 
+            bindings = <&mo 5>; 
         };
     };
 
@@ -44,10 +44,35 @@
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | BKSP| RSE | ALT |
             bindings = <
-&kp TAB    &kp Q     &kp W     &kp F      &kp P      &kp B   &kp J &kp L      &kp U       &kp Y     &kp SQT   &kp RET
-&caps_word &m LGUI A &m LALT R &m LSHFT S &m LCTRL T &kp G   &kp M &m RCTRL N &m RSHFT E  &m RALT I &m RGUI O &kp SQT
-&kp LSHFT  &kp Z     &kp X     &kp C      &kp D      &kp V   &kp K &kp H      &kp COMMA   &kp DOT   &kp FSLH  &kp ESC
-                  &ltc 3 TAB &kp SPACE &kp RET   &kp SEMI &ltc 2 BSPC &ltc 1 ESC
+&kp TAB    &kp Q      &kp W      &kp F       &kp P       &kp B   &kp J  &kp L       &kp U       &kp Y      &kp SQT    &kp RET
+&caps_word &mt LGUI A &mt LALT R &mt LSHFT S &mt LCTRL T &kp G   &kp M  &mt RCTRL N &mt RSHFT E &mt RALT I &mt RGUI O &kp SQT
+&kp LSHFT  &kp Z      &kp X      &kp C       &kp D       &kp V   &kp K  &kp H       &kp COMMA   &kp DOT    &kp FSLH   &to 1
+                  &lt 4 TAB   &kp SPACE   &kp RET   &kp SEMI &lt 2 BSPC &lt 3 ESC
+            >;
+        };
+
+        qwerty {
+            display-name = "qwerty";
+            bindings = <
+&kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp RET
+&caps_word &mt LGUI A &mt LALT S &mt LSHFT D &mt LCTRL F &kp G    &kp H  &mt RCTRL J &mt RSHFT K &mt RALT L &mt RGUI SEMI &kp SQT
+&kp LSHFT  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
+                     &lt 4 TAB   &kp SPACE   &kp RET  &kp SEMI &lt 2 BSPC &lt 3 ESC
+            >;
+        };
+
+        syms {
+            display-name = "syms";
+//  -----------------------------------------------------------------------------------------
+//  |  ~  |  !  |  @  |  #  |  ^  |     |  $  |  &  |  *  |  ?  |  |  |
+//  |  [  |  {  |  (  |  <  |  +  |     |  =  |  >  |  )  |  }  |  ]  |
+//  |  \  |  _  |  -  |  %  |  :  |     |  /  |  '  |  "  |  .  |  ,  |
+//                 | TAB | SPC | RET | SEMI | SYM | ESC |
+            bindings = <
+&trans &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp CARET     &kp DLLR  &kp AMPS  &kp ASTRK &kp QMARK &kp PIPE   &trans
+&trans &kp LBKT  &kp LBRC  &kp LPAR  &kp LT    &kp PLUS      &kp EQUAL &kp GT    &kp RPAR  &kp RBRC  &kp RBKT   &trans
+&trans &kp BSLH  &kp UNDER &kp MINUS &kp PRCNT &kp COLON     &kp FSLH  &kp SQT   &kp DQT   &kp DOT   &kp COMMA  &trans
+                          &trans    &trans    &trans        &trans    &trans    &trans
             >;
         };
 
@@ -63,22 +88,6 @@
 &trans &kp N0 &kp N4 &kp N5 &kp N6 &kp DOT       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
 &trans &trans &kp N1 &kp N2 &kp N3 &kp COMMA     &kp DEL  &kp BSPC  &kp INS   &kp CAPS  &trans &trans
                    &trans  &trans  &trans       &trans  &trans  &trans
-            >;
-        };
-
-
-        syms {
-            display-name = "syms";
-//  -----------------------------------------------------------------------------------------
-//  |  ~  |  !  |  @  |  #  |  ^  |     |  $  |  &  |  *  |  ?  |  |  |
-//  |  [  |  {  |  (  |  <  |  +  |     |  =  |  >  |  )  |  }  |  ]  |
-//  |  \  |  _  |  -  |  %  |  :  |     |  /  |  '  |  "  |  .  |  ,  |
-//                 | TAB | SPC | RET | SEMI | SYM | ESC |
-            bindings = <
-&trans &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp CARET     &kp DLLR  &kp AMPS  &kp ASTRK &kp QMARK &kp PIPE   &trans
-&trans &kp LBKT  &kp LBRC  &kp LPAR  &kp LT    &kp PLUS      &kp EQUAL &kp GT    &kp RPAR  &kp RBRC  &kp RBKT   &trans
-&trans &kp BSLH  &kp UNDER &kp MINUS &kp PRCNT &kp COLON     &kp FSLH  &kp SQT   &kp DQT   &kp DOT   &kp COMMA  &trans
-                          &trans    &trans    &trans        &trans    &trans    &trans
             >;
         };
 
