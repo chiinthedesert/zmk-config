@@ -60,6 +60,26 @@
             key-positions = <37 38 39>; 
             bindings = <&mo 5>; 
         };
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <2 3>; 
+            bindings = <&kp ESC>; 
+        };
+        combo_ret {
+            timeout-ms = <50>;
+            bindings = <&kp RET>; 
+            key-positions = <32 33>; 
+        };
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <26 27>; 
+            bindings = <&kp TAB>; 
+        };
+        combo_bspc {
+            timeout-ms = <50>;
+            key-positions = <8 9>; 
+            bindings = <&kp BSPC>; 
+        };
     };
 
 
