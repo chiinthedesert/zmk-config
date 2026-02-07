@@ -92,12 +92,11 @@
 // |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L  |  U  |  Y  |  '  | RET  |
 // | CTRL |  A  |  R  |  S  |  T  |  G  |   |  M  |  N  |  E  |  I  |  O  |  '   |
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | BKSP| RSE | ALT |
             bindings = <
 &kp TAB    &kp Q      &kp W      &kp F       &kp P       &kp B   &kp J  &kp L       &kp U       &kp Y      &kp SQT    &kp BSPC
 &pinky 2 0 &hl LGUI A &hl LALT R &hl LSHFT S &hl LCTRL T &kp G   &kp M  &hr RCTRL N &hr RSHFT E &hr RALT I &hr RGUI O &pinky 2 0
 &ext_power EP_TOG  &kp Z      &kp X      &kp C       &kp D       &kp V   &kp K  &kp H       &kp COMMA   &kp DOT    &kp FSLH   &to 1
-                  &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &kp BSPC &kp DEL
+                  &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &kp SPACE  &kp DEL
             >;
         };
 
@@ -107,21 +106,20 @@
 &kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
 &pinky 2 0 &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &pinky 2 0
 &ext_power EP_TOG  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
-                  &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &kp BSPC &kp DEL
+                  &lm 4 TAB   &lm 3 SPACE   &kp RET   &kp ESC &kp SPACE &kp DEL
             >;
         };
 
         syms {
             display-name = "syms";
 //  -----------------------------------------------------------------------------------------
-//  |  ~  |  !  |  @  |  #  |  ^  |     |  $  |  &  |  *  |  ?  |  |  |
-//  |  [  |  {  |  (  |  <  |  +  |     |  =  |  >  |  )  |  }  |  ]  |
-//  |  \  |  _  |  -  |  %  |  :  |     |  /  |  '  |  "  |  .  |  ,  |
-//                 | TAB | SPC | RET | SEMI | SYM | ESC |
+//  |  '  |  <  |  >  |  "  |  ^  |     |  $  |  %  |  {  |  }  |  ?  |
+//  |  !  |  -  |  +  |  =  |  #  |     |  |  |  :  |  (  |  )  |  ;  |
+//  |  ~  |  /  |  *  |  \  |  `  |     |  _  |  &  |  [  |  ]  |  @  |
             bindings = <
-&trans &kp TILDE &kp EXCL  &kp AT    &kp HASH  &kp CARET     &kp DLLR  &kp AMPS  &kp ASTRK &kp QMARK &kp PIPE   &trans
-&trans &kp LBKT  &kp LBRC  &kp LPAR  &kp LT    &kp PLUS      &kp EQUAL &kp GT    &kp RPAR  &kp RBRC  &kp RBKT   &trans
-&trans &kp BSLH  &kp UNDER &kp MINUS &kp PRCNT &kp COLON     &kp FSLH  &kp SQT   &kp DQT   &kp DOT   &kp COMMA  &trans
+&trans &kp SQT   &kp LT    &kp GT    &kp DQT   &kp CARET   &kp DLLR  &kp PRCNT &kp LBRC &kp RBRC &kp QMARK &trans
+&trans &kp EXCL  &kp MINUS &kp PLUS  &kp EQUAL &kp HASH    &kp PIPE  &kp COLON &kp LPAR &kp RPAR &kp SEMI  &trans
+&trans &kp TILDE &kp FSLH  &kp ASTRK &kp BSLH  &kp GRAVE   &kp UNDER &kp AMPS  &kp LBKT &kp RBKT &kp AT    &trans
                           &trans    &trans    &trans        &trans    &trans    &trans
             >;
         };
@@ -132,7 +130,6 @@
 //  |     |  7  |  8  |  9  |  0  |     | HOME | PGDN | PGUP | END  |     |
 //  |  0  |  4  |  5  |  6  |  .  |     | LEFT | DOWN |  UP  | RGHT |     |
 //  |     |  1  |  2  |  3  |  ,  |     | DEL  | BSPC | INS  | CAPS |     |
-//                 | TAB | SPC | RET | SEMI | SYM | ESC |
             bindings = <
 &trans &trans &kp N7 &kp N8 &kp N9 &kp N0        &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
 &trans &kp N0 &kp N4 &kp N5 &kp N6 &kp DOT       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
@@ -147,7 +144,6 @@
 //  |     | F12 | F7  | F8  | F9  |     | BT1  | BT2  | BT3  | BT4  | BTCLR |     |
 //  |     | F11 | F4  | F5  | F6  |     | MUTE | VOLDN| VOLUP| PREV | NEXT  |     |
 //  |     | F10 | F1  | F2  | F3  |     |PSCRN | BRIDN| BRIUP| PLAY | SLEEP |     |
-//                    |     |     |     |      |      |      |
             bindings = <
 &trans &trans &kp F7 &kp F8 &kp F9 &kp F12      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR  &trans
 &trans &trans &kp F4 &kp F5 &kp F6 &kp F11      &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV   &kp C_NEXT  &trans
