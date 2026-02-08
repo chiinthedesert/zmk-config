@@ -128,13 +128,13 @@
         nums {
             display-name = "nums";
 //  -----------------------------------------------------------------------------------------
-//  |     |  7  |  8  |  9  |  0  |     | HOME | PGDN | PGUP | END  |     |
-//  |  0  |  4  |  5  |  6  |  .  |     | LEFT | DOWN |  UP  | RGHT |     |
-//  |     |  1  |  2  |  3  |  ,  |     | DEL  | BSPC | INS  | CAPS |     |
+//  |  *  |  7  |  8  |  9  |  +  |     | HOME | PGDN | PGUP | END  | ,   |
+//  |  0  |  4  |  5  |  6  |  =  |     | LEFT | DOWN |  UP  | RGHT |     |
+//  |  /  |  1  |  2  |  3  |  -  |     | DEL  | BSPC | '    | ;    |  .  |
             bindings = <
-&trans &trans &kp N7 &kp N8 &kp N9 &kp N0        &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
-&trans &kp N0 &kp N4 &kp N5 &kp N6 &kp DOT       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
-&trans &trans &kp N1 &kp N2 &kp N3 &kp COMMA     &kp DEL  &kp BSPC  &kp INS   &kp CAPS  &trans &trans
+&trans &kp ASTRK &kp N7 &kp N8 &kp N9 &kp PLUS     &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp COMMA &trans
+&trans &kp N0    &kp N4 &kp N5 &kp N6 &kp EQUAL    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
+&trans &kp FSLH  &kp N1 &kp N2 &kp N3 &kp MINUS    &kp DEL  &kp BSPC   &kp SQT   &kp SEMI  &kp DOT &trans
                    &trans  &trans  &trans       &trans  &trans  &trans
             >;
         };
