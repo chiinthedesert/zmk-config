@@ -56,9 +56,14 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_sys {
+        combo_sys0 {
             timeout-ms = <50>;
-            key-positions = <37 38 39>; 
+            key-positions = <36 37 38>; 
+            bindings = <&mo 5>; 
+        };
+        combo_sys1 {
+            timeout-ms = <50>;
+            key-positions = <39 40 41>; 
             bindings = <&mo 5>; 
         };
         combo_esc {
