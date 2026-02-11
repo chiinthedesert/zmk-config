@@ -16,7 +16,7 @@ void draw_layer_status(lv_obj_t *canvas, const struct status_state *state) {
         sprintf(text, "Layer %i", state->layer_index);
     } else {
         strncpy(text, state->layer_label, 9);
-        to_uppercase(text);
+        // to_uppercase(text);
     }
 
 #if IS_ENABLED(CONFIG_NICE_OLED_WIDGET_RESPONSIVE_BONGO_CAT)
