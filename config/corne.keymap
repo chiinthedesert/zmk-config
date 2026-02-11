@@ -61,6 +61,11 @@
             key-positions = <37 38 39>; 
             bindings = <&mo 5>; 
         };
+        combo_sys {
+            timeout-ms = <50>;
+            key-positions = <37 38 39>; 
+            bindings = <&mo 5>; 
+        };
         combo_esc {
             timeout-ms = <50>;
             key-positions = <2 3>; 
