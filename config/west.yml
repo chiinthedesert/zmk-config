@@ -1,13 +1,17 @@
 manifest:
-  # defaults:
-  #   revision: v0.3
+  defaults:
+    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: bluedrink9
+      url-base: https://github.com/bluedrink9
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
       import: app/west.yml
+    - name: zmk-poor-mans-led-indicator
+      remote: bluedrink9
+      revision: main
   self:
     path: config
