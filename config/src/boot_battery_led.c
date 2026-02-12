@@ -48,6 +48,13 @@ static int battery_boot_blink(const struct device *dev)
     gpio_pin_configure_dt(&led, GPIO_OUTPUT_INACTIVE);
 
     int level = zmk_battery_state_of_charge();
+    int retry = 0;
+
+    while (level == 0 && retry++ < 10) {
+        k_msleep(100);
+        level = zmk_battery_state_of_charge();
+    }
+
 
     if (level >= HIGH_THRESHOLD) {
         blink(FAST_COUNT, FAST_DELAY_MS);
