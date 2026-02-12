@@ -4,15 +4,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: bluedrink9
-      url-base: https://github.com/bluedrink9
+    - name: chiinthedesert
+      url-base: https://github.com/chiinthedesert
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: zmk-poor-mans-led-indicator
-      remote: bluedrink9
+    - name: zmk-led-indicator
+      remote: chiinthedesert
       revision: main
   self:
     path: config
