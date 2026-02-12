@@ -2,17 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # support nice_oled and nice_epaper
-    # - name: mctechnology17
-    #   url-base: https://github.com/mctechnology17
+    - name: bluedrink9
+      url-base: https://github.com/bluedrink9
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3.0
+      revision: main
       import: app/west.yml
-    # support nice_oled and nice_epaper
-    # - name: zmk-nice-oled
-    #   remote: mctechnology17
-    #   revision: main
+    - name: zmk-poor-mans-led-indicator
+      remote: bluedrink9
+      revision: main
   self:
     path: config
