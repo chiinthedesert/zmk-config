@@ -10,8 +10,8 @@
 #define LOW_THRESHOLD  10
 
 /* Blink timing */
-#define FAST_DELAY_MS 100
-#define SLOW_DELAY_MS 400
+#define FAST_DELAY_MS 400
+#define SLOW_DELAY_MS 500
 
 #define FAST_COUNT 3
 #define SLOW_COUNT 5
@@ -60,4 +60,3 @@ static int battery_boot_blink(const struct device *dev)
 
 /* Register boot hook */
 SYS_INIT(battery_boot_blink, APPLICATION, 99);
-
