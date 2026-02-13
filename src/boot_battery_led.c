@@ -3,7 +3,10 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/init.h>
 
+
+#if IS_ENABLED(CONFIG_BOOT_BATTERY_LED)
 #include <zmk/battery.h>
+#endif
 
 /* Battery thresholds */
 #define HIGH_THRESHOLD 90
@@ -40,6 +43,7 @@ static void blink(int count, int delay_ms)
 /* Runs at boot */
 static int battery_boot_blink(void)
 {
+#if IS_ENABLED(CONFIG_BOOT_BATTERY_LED)
     if (!device_is_ready(led.port)) {
         return 0;
     }
@@ -66,7 +70,7 @@ static int battery_boot_blink(void)
     } else if (level <= LOW_THRESHOLD) {
         blink(SLOW_COUNT, SLOW_DELAY_MS);
     }
-
+#endif
     return 0;
 }
 

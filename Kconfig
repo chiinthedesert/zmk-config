@@ -1,0 +1,4 @@
+config BOOT_BATTERY_LED
+    bool "Enable boot battery LED blink"
+    default y
+    depends on ZMK_BATTERY
