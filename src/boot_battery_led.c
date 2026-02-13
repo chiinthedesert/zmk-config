@@ -17,7 +17,7 @@
 #define SLOW_DELAY_MS 500
 
 #define FAST_COUNT 3
-#define SLOW_COUNT 5
+#define SLOW_COUNT 6
 
 /* Use board LED (led_0) via alias */
 #define LED_NODE DT_ALIAS(indicator_led)
