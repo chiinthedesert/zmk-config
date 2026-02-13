@@ -10,14 +10,15 @@
 #define LOW_THRESHOLD  10
 
 /* Blink timing */
-#define FAST_DELAY_MS 400
+#define FAST_DELAY_MS 300
 #define SLOW_DELAY_MS 500
 
 #define FAST_COUNT 3
 #define SLOW_COUNT 5
 
-/* Use board LED (led0) via alias */
+/* Use board LED (led_0) via alias */
 #define LED_NODE DT_ALIAS(indicator_led)
+// #define LED_NODE DT_NODELABEL(blue_led)
 
 #if !DT_NODE_HAS_STATUS(LED_NODE, okay)
 #error "indicator-led alias not defined in overlay"
@@ -37,16 +38,20 @@ static void blink(int count, int delay_ms)
 }
 
 /* Runs at boot */
-static int battery_boot_blink(const struct device *dev)
+static int battery_boot_blink(void)
 {
-    ARG_UNUSED(dev);
-
     if (!device_is_ready(led.port)) {
         return 0;
     }
 
     gpio_pin_configure_dt(&led, GPIO_OUTPUT_INACTIVE);
 
+    // while (1) {
+    //     gpio_pin_set_dt(&led, 1);
+    //     k_msleep(300);
+    //     gpio_pin_set_dt(&led, 0);
+    //     k_msleep(300);
+    // }
     int level = zmk_battery_state_of_charge();
     int retry = 0;
 
