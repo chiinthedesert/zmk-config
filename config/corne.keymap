@@ -103,7 +103,7 @@
 &kp ESC    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp COMMA    &kp BSPC
 &pinky 2 0 &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I   &pinky 2 0
 &to 1      &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp SQT     &kp SEMI   &kp DOT      &to 1
-                    &kp TAB  &lm 3 SPACE &lm 4 RET         &kp BSPC &lm 3 ESC &kp DEL
+                    &kp TAB  &lm 3 ESC &lm 4 RET         &kp BSPC &lm 3 SPACE &kp DEL
             >;
         };
 
