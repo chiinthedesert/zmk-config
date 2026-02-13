@@ -38,18 +38,26 @@
             bindings = <&mo>, <&kp>;
         };
 
-        td_sc: tap_dance_sym_caps {
+        td_c: tap_dance_caps {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&sl 2>, <&caps_word>;
+            bindings = <&sk LSHFT>, <&caps_word>;
         };
-        pinky: pinky_master {
+        shft: ultimate_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             flavor = "balanced";
-            bindings = <&mo>, <&td_sc>;
+            bindings = <&kp>, <&td_c>;
+            retro-tap;
+        };
+        slish: stickish_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <175>;
+            flavor = "balanced";
+            bindings = <&mo>, <&sl>;
             retro-tap;
         };
     };
@@ -74,18 +82,18 @@
         combo_ret {
             timeout-ms = <50>;
             bindings = <&kp RET>; 
-            key-positions = <32 33>; 
+            key-positions = <8 9>; 
         };
         combo_tab {
             timeout-ms = <50>;
             key-positions = <26 27>; 
             bindings = <&kp TAB>; 
         };
-        combo_bspc {
-            timeout-ms = <50>;
-            key-positions = <8 9>; 
-            bindings = <&kp BSPC>; 
-        };
+        /* combo_bspc { */
+        /*     timeout-ms = <50>; */
+        /*     key-positions = <32 33>;  */
+        /*     bindings = <&kp BSPC>;  */
+        /* }; */
     };
 
 
@@ -94,16 +102,12 @@
 
         base {
             display-name = "gallium";
-// -----------------------------------------------------------------------------------------
-// |  ESC |  B  |  L  |  D  |  C  |  V  |   |  J  |  Y  |  O  |  U  |  ,  | BKSP |
-// | PINK |  N  |  R  |  T  |  S  |  G  |   |  P  |  H  |  A  |  E  |  I  | PINK |
-// | PWR  |  X  |  Q  |  M  |  W  |  Z  |   |  K  |  F  |  '  |  ;  |  .  | TO 1 |
-//                    | TAB | SPC | RET |   | BKSP| SPC | DEL |
             bindings = <
 &kp ESC    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp COMMA    &kp BSPC
-&pinky 2 0 &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I   &pinky 2 0
+&slish 2 2 &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I   &slish 2 2
 &to 1      &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp SQT     &kp SEMI   &kp DOT      &to 1
-                    &kp TAB  &lm 3 BSPC &lm 4 RET         &kp ESC &lm 3 SPACE &kp DEL
+                    &kp TAB  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
+                    &lm 4 PSCRN  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
             >;
         };
 
@@ -111,9 +115,9 @@
             display-name = "qwerty";
             bindings = <
 &kp ESC    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
-&pinky 2 0 &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &pinky 2 0
+&slish 2 2 &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &slish 2 2
 &to 0      &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
-                    &kp TAB  &lm 3 BSPC &lm 4 RET         &kp ESC &lm 3 SPACE &kp DEL
+                    &lm 4 PSCRN  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
             >;
         };
 
