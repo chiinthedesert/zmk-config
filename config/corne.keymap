@@ -106,7 +106,6 @@
 &kp ESC    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp COMMA    &kp BSPC
 &slish 2 2 &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I   &slish 2 2
 &to 1      &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp SQT     &kp SEMI   &kp DOT      &to 1
-                    &kp TAB  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
                     &lm 4 PSCRN  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
             >;
         };
