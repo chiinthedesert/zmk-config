@@ -115,7 +115,7 @@
             bindings = <
 &kp ESC    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
 &slish 2 2 &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &slish 2 2
-&to 0      &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
+&to 0      &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp SQT       &to 0
                     &lm 4 PSCRN  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
             >;
         };
