@@ -106,7 +106,7 @@
 &kp ESC    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp COMMA    &kp BSPC
 &slish 2 2 &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I   &slish 2 2
 &kp PSCRN  &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp SQT     &kp SEMI   &kp DOT      &to 1
-                    &lm 4 TAB  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
+                    &lm 4 TAB  &lm 3 SPACE &shft LSHFT 0       &slish 2 2 &lm 3 BSPC &kp DEL
             >;
         };
 
@@ -116,7 +116,7 @@
 &kp ESC    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
 &slish 2 2 &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &slish 2 2
 &kp PSCRN  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp SQT       &to 0
-                    &lm 4 TAB  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
+                    &lm 4 TAB  &lm 3 SPACE &shft LSHFT 0       &slish 2 2 &lm 3 BSPC &kp DEL
             >;
         };
 
