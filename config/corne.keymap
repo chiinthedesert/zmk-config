@@ -9,7 +9,7 @@
 
 
 &mmv {
-  time-to-max-speed-ms = <500>;
+  time-to-max-speed-ms = <350>;
   acceleration-exponent = <1>;
 };
 &msc {
