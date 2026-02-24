@@ -4,6 +4,16 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/pointing.h>
 
+
+&mmv {
+  time-to-max-speed-ms = <500>;
+  acceleration-exponent = <2>;
+};
+&msc {
+    time-to-max-speed-ms = <400>;
+    acceleration-exponent = <1>;
+};
+
 /{
     behaviors {
         hl: home_row_mod_left {
@@ -38,18 +48,39 @@
             bindings = <&mo>, <&kp>;
         };
 
-        td_c: tap_dance_caps {
+        td_c: tap_dance_capsword {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&sk LSHFT>, <&caps_word>;
+            bindings = <&sk RSHFT>, <&caps_word>;
         };
-        shft: ultimate_shift {
+        td_cl: tap_dance_capslock {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&sk LSHFT>, <&kp CAPS>;
+        };
+        cw: ultimate_caps {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&caps_word>, <&kp CAPS>;
+        };
+
+        shftr: ultimate_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&td_c>;
+            retro-tap;
+        };
+        shftl: ultimate_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+            bindings = <&kp>, <&td_cl>;
             retro-tap;
         };
         slish: stickish_layer {
@@ -60,6 +91,7 @@
             bindings = <&mo>, <&sl>;
             retro-tap;
         };
+
     };
 
     combos {
@@ -103,20 +135,20 @@
         base {
             display-name = "gallium";
             bindings = <
-&kp ESC    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp COMMA    &kp BSPC
-&slish 2 2 &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I   &slish 2 2
+&kp TAB    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp COMMA    &kp BSPC
+&cw        &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I   &slish 2 2
 &kp PSCRN  &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp SQT     &kp SEMI   &kp DOT      &to 1
-                    &lm 4 TAB  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
+                   &lm 4 TAB  &lm 3 BSPC &slish 2 2       &slish 2 2 &lm 3 SPACE &kp DEL
             >;
         };
 
         qwerty {
             display-name = "qwerty";
             bindings = <
-&kp ESC    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
-&slish 2 2 &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &slish 2 2
-&kp PSCRN  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp SQT       &to 0
-                    &lm 4 TAB  &lm 3 SPACE &shft LSHFT 0       &kp BSPC &lm 3 SPACE &kp DEL
+&kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
+&cw        &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &kp SQT
+&kp PSCRN  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
+                   &lm 4 TAB  &lm 3 BSPC &slish 2 2       &slish 2 2 &lm 3 SPACE &lm 4 DEL
             >;
         };
 
@@ -142,8 +174,8 @@
 //  |  /  |  1  |  2  |  3  |  -  |     | DEL  | BSPC | '    | ;    |  .  |
             bindings = <
 &trans &kp ASTRK &kp N7 &kp N8 &kp N9 &kp PLUS     &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp COMMA &trans
-&trans &kp N0    &kp N4 &kp N5 &kp N6 &kp EQUAL    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
-&trans &kp FSLH  &kp N1 &kp N2 &kp N3 &kp MINUS    &kp DEL  &kp BSPC   &kp SQT   &kp SEMI  &kp DOT &trans
+&trans &kp N0    &kp N4 &kp N5 &kp N6 &kp EQUAL    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans    &trans
+&trans &kp FSLH  &kp N1 &kp N2 &kp N3 &kp MINUS    &kp DEL  &kp BSPC  &kp SQT   &kp SEMI  &kp DOT   &trans
                         &trans  &trans  &trans      &trans  &trans  &trans
             >;
         };
@@ -169,6 +201,16 @@
 &bootloader &none &none &none &none &none    &none &none &none &none &none &bootloader
 &none       &none &none &none &none &none    &none &none &none &none &none &none
                         &none &none &none    &none &none &none
+            >;
+        };
+
+        mouse {
+            display-name = "mouse";
+          bindings = <
+&trans &trans &trans         &trans       &trans         &trans            &trans          &trans         &mkp MB4     &mkp MB5        &trans &trans
+&trans &trans &msc SCRL_LEFT &msc SCRL_UP &msc SCRL_DOWN &msc SCRL_RIGHT   &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &tog 6
+&trans &trans &trans         &trans       &trans         &trans            &trans          &trans         &trans       &trans          &trans &trans
+                         &kp LALT  &kp LCTRL   &kp LSHFT    &mkp MCLK   &mkp LCLK    &mkp RCLK
             >;
         };
     };
