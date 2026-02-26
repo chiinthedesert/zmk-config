@@ -1,78 +1,48 @@
 #include <zephyr/kernel.h>
-#include <zephyr/device.h>
-#include <zephyr/drivers/gpio.h>
 #include <zephyr/init.h>
+#include <zephyr/device.h>
+#include <zephyr/drivers/display.h>
 
+#if IS_ENABLED(CONFIG_BOOT_OLED)
 
-#if IS_ENABLED(CONFIG_BOOT_BATTERY_LED)
-#include <zmk/battery.h>
-#endif
+/*
+ * We directly control the Zephyr display driver.
+ * This avoids using any non-exported ZMK display symbols.
+ */
 
-/* Battery thresholds */
-#define HIGH_THRESHOLD 90
-#define LOW_THRESHOLD  10
+static struct k_work_delayable oled_off_work;
 
-/* Blink timing */
-#define FAST_DELAY_MS 300
-#define SLOW_DELAY_MS 500
-
-#define FAST_COUNT 3
-#define SLOW_COUNT 6
-
-/* Use board LED (led_0) via alias */
-#define LED_NODE DT_ALIAS(indicator_led)
-// #define LED_NODE DT_NODELABEL(blue_led)
-
-#if !DT_NODE_HAS_STATUS(LED_NODE, okay)
-#error "indicator-led alias not defined in overlay"
-#endif
-
-static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
-
-/* Blink helper */
-static void blink(int count, int delay_ms)
+/* Turn display off (hard blackout) */
+static void oled_off_handler(struct k_work *work)
 {
-    for (int i = 0; i < count; i++) {
-        gpio_pin_set_dt(&led, 1);
-        k_msleep(delay_ms);
-        gpio_pin_set_dt(&led, 0);
-        k_msleep(delay_ms);
+    const struct device *display_dev =
+        DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
+
+    if (!device_is_ready(display_dev)) {
+        return;
     }
+
+    display_blanking_on(display_dev);
 }
 
-/* Runs at boot */
-static int battery_boot_blink(void)
+/* Schedule blackout after boot */
+static int boot_oled_timeout_init(void)
 {
-#if IS_ENABLED(CONFIG_BOOT_BATTERY_LED)
-    if (!device_is_ready(led.port)) {
-        return 0;
-    }
+    /*
+     * Give LVGL + display subsystem time to fully initialize
+     * before starting the 5-second countdown.
+     */
+    k_msleep(500);
 
-    gpio_pin_configure_dt(&led, GPIO_OUTPUT_INACTIVE);
+    k_work_init_delayable(&oled_off_work, oled_off_handler);
 
-    // while (1) {
-    //     gpio_pin_set_dt(&led, 1);
-    //     k_msleep(300);
-    //     gpio_pin_set_dt(&led, 0);
-    //     k_msleep(300);
-    // }
-    int level = zmk_battery_state_of_charge();
-    int retry = 0;
+    /* Blackout after 5 seconds */
+    k_work_schedule(&oled_off_work, K_SECONDS(5));
 
-    while (level == 0 && retry++ < 10) {
-        k_msleep(100);
-        level = zmk_battery_state_of_charge();
-    }
-
-
-    if (level >= HIGH_THRESHOLD) {
-        blink(FAST_COUNT, FAST_DELAY_MS);
-    } else if (level <= LOW_THRESHOLD) {
-        blink(SLOW_COUNT, SLOW_DELAY_MS);
-    }
-#endif
     return 0;
 }
 
-/* Register boot hook */
-SYS_INIT(battery_boot_blink, APPLICATION, 99);
+/* Run late in APPLICATION phase to avoid racing display init */
+SYS_INIT(boot_oled_timeout_init, APPLICATION, 120);
+
+#endif
