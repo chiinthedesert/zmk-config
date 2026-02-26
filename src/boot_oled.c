@@ -1,24 +1,48 @@
 #include <zephyr/kernel.h>
 #include <zephyr/init.h>
+#include <zephyr/device.h>
+#include <zephyr/drivers/display.h>
 
 #if IS_ENABLED(CONFIG_BOOT_OLED)
 
-#include <zmk/display.h>
+/*
+ * Hard blackout of OLED after 5 seconds at boot.
+ * Uses Zephyr display driver directly (no ZMK wrapper).
+ */
 
 static struct k_work_delayable oled_off_work;
 
+/* Turn display off (panel blanking) */
 static void oled_off_handler(struct k_work *work)
 {
-    zmk_display_sleep();
+    const struct device *display_dev =
+        DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
+
+    if (!device_is_ready(display_dev)) {
+        return;
+    }
+
+    display_blanking_on(display_dev);
 }
 
-static int boot_oled_timeout_init(void)
+/* Schedule blackout */
+static int boot_oled_init(void)
 {
+    /*
+     * Allow display + LVGL to finish initializing
+     * before starting countdown.
+     */
+    k_msleep(500);
+
     k_work_init_delayable(&oled_off_work, oled_off_handler);
+
+    /* 5 second visible boot window */
     k_work_schedule(&oled_off_work, K_SECONDS(5));
+
     return 0;
 }
 
-SYS_INIT(boot_oled_timeout_init, APPLICATION, 99);
+/* Run late to avoid racing display init */
+SYS_INIT(boot_oled_init, APPLICATION, 120);
 
 #endif
