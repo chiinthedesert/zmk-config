@@ -1,4 +1,9 @@
 config BOOT_BATTERY_LED
     bool "Enable boot battery LED blink"
-    default y
+    default n
     depends on ZMK_BATTERY
+
+config BOOT_OLED
+    bool "Turn off OLED 5 seconds after boot"
+    depends on ZMK_DISPLAY
+    default n
