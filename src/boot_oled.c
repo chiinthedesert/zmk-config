@@ -43,6 +43,6 @@ static int boot_oled_init(void)
 }
 
 /* Run late to avoid racing display init */
-SYS_INIT(boot_oled_init, APPLICATION, 120);
+SYS_INIT(boot_oled_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY + 1);
 
 #endif
