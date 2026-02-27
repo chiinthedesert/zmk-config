@@ -1,12 +1,18 @@
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/display.h>
+#include <zephyr/pm/device.h>
 
 #if IS_ENABLED(CONFIG_BOOT_OLED)
 
-static struct k_work_delayable oled_off_work;
+/*
+ * Hard boot-only OLED.
+ * Visible for 5 seconds after boot,
+ * then display device is suspended permanently
+ * until next reboot.
+ */
 
-static void oled_off_handler(struct k_work *work)
+static void boot_oled_thread(void)
 {
     const struct device *display =
         DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
@@ -15,26 +21,25 @@ static void oled_off_handler(struct k_work *work)
         return;
     }
 
+    /*
+     * Let ZMK + LVGL fully initialize
+     * and render default screen.
+     */
+    k_sleep(K_SECONDS(5));
+
+    /* Blank framebuffer */
     display_blanking_on(display);
+
+    /* Small delay to avoid race with LVGL refresh */
+    k_sleep(K_MSEC(20));
+
+    /* Suspend the display driver itself */
+    pm_device_action_run(display, PM_DEVICE_ACTION_SUSPEND);
 }
 
 /*
- * We hook into the system using a delayed thread,
- * not SYS_INIT.
- */
-static void boot_oled_thread(void)
-{
-    /* Wait for LVGL + display to fully start */
-    k_sleep(K_SECONDS(2));
-
-    k_work_init_delayable(&oled_off_work, oled_off_handler);
-
-    /* Turn off after x seconds */
-    k_work_schedule(&oled_off_work, K_SECONDS(4));
-}
-
-/*
- * Run after kernel is fully started.
+ * Dedicated low-priority thread.
+ * No SYS_INIT. No linker section conflicts.
  */
 K_THREAD_DEFINE(
     boot_oled_tid,
