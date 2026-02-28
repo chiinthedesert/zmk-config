@@ -147,9 +147,9 @@
         base {
             display-name = "gallium";
             bindings = <
-&kp TAB    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp COMMA  &kp BSPC
+&kp TAB    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp SQT    &kp BSPC
 &cw        &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &tog 6
-&kp PSCRN  &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp SQT     &kp SEMI   &kp DOT    &to 1
+&kp PSCRN  &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &to 1
                    &lm 4 TAB  &lm 3 SPACE &slm 2 LSHFT       &lm 2 BSPC &lm 3 SPACE &lm 4 DEL
             >;
         };
