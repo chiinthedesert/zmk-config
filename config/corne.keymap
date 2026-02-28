@@ -3,8 +3,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1400
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 25
 #include <dt-bindings/zmk/pointing.h>
 
 
@@ -13,7 +13,7 @@
   acceleration-exponent = <1>;
 };
 &msc {
-    time-to-max-speed-ms = <0>;
+    time-to-max-speed-ms = <100>;
     acceleration-exponent = <0>;
 };
 
