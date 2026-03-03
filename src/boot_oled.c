@@ -25,7 +25,7 @@ static void boot_oled_thread(void)
      * Let ZMK + LVGL fully initialize
      * and render default screen.
      */
-    k_sleep(K_SECONDS(5));
+    k_sleep(K_SECONDS(7));
 
     /* Blank framebuffer */
     display_blanking_on(display);
