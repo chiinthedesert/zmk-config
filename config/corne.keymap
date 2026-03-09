@@ -181,13 +181,13 @@
         nums {
             display-name = "nums";
 //  -----------------------------------------------------------------------------------------
-//  |  *  |  7  |  8  |  9  |  +  |     | HOME | PGDN | PGUP | END  | ,   |
-//  |  0  |  4  |  5  |  6  |  =  |     | LEFT | DOWN |  UP  | RGHT |     |
-//  |  /  |  1  |  2  |  3  |  -  |     | DEL  | BSPC | '    | ;    |  .  |
+//  |  *  |  7  |  8  |  9  |  +  |     | HOME | PGDN | PGUP | END  |trans|
+//  |  0  |  4  |  5  |  6  |  =  |     | LEFT | DOWN |  UP  | RGHT |trans|
+//  |  /  |  1  |  2  |  3  |  -  |     |trans |trans | ,    | .    |  /  |
             bindings = <
-&trans &kp ASTRK &kp N7 &kp N8 &kp N9 &kp PLUS     &trans    &trans    &trans   &trans   &trans &trans
-&trans &kp N0    &kp N4 &kp N5 &kp N6 &kp EQUAL    &kp RCTRL &kp RSHFT &kp RALT &kp RGUI &trans &trans
-&trans &kp FSLH  &kp N1 &kp N2 &kp N3 &kp MINUS    &trans    &trans    &trans   &trans   &trans &trans
+&trans &kp ASTRK &kp N7 &kp N8 &kp N9 &kp PLUS     &trans &trans &trans &trans &trans &trans
+&trans &kp N0    &kp N4 &kp N5 &kp N6 &kp EQUAL    &trans &trans &trans &trans &trans &trans
+&trans &kp FSLH  &kp N1 &kp N2 &kp N3 &kp MINUS    &trans &trans &trans &trans &trans &trans
                         &trans  &trans  &trans      &trans  &trans  &trans
             >;
         };
@@ -195,13 +195,13 @@
         nav {
             display-name = "nav";
 //  -----------------------------------------------------------------------------------------
-//  |  *  |  7  |  8  |  9  |  +  |     | HOME | PGDN | PGUP | END  | ,   |
-//  |  0  |  4  |  5  |  6  |  =  |     | LEFT | DOWN |  UP  | RGHT |     |
-//  |  /  |  1  |  2  |  3  |  -  |     | DEL  | BSPC | '    | ;    |  .  |
+//  |  *  |  7  |  8  |  9  |  +  |     | HOME | PGDN | PGUP | END  |trans|
+//  |  0  |  4  |  5  |  6  |  =  |     | LEFT | DOWN |  UP  | RGHT |trans|
+//  |  /  |  1  |  2  |  3  |  -  |     |trans |trans | ,    | .    |  /  |
             bindings = <
-&trans &trans    &trans   &trans    &trans    &trans     &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
-&trans &kp LGUI  &kp LALT &kp LSHFT &kp LCTRL &trans     &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
-&trans &trans    &trans   &trans    &trans    &trans     &trans   &trans    &trans    &trans    &trans &trans
+&trans &trans &trans &trans &trans &trans     &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
+&trans &trans &trans &trans &trans &trans     &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
+&trans &trans &trans &trans &trans &trans     &trans   &trans    &trans    &trans    &trans &trans
                         &trans  &trans  &trans      &trans  &trans  &trans
             >;
         };
