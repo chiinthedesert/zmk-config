@@ -163,13 +163,13 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        gallium {
             display-name = "gallium";
             bindings = <
 &none &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp SQT    &none
 &none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &none
 &none &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
-                   &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 DEL
+                   &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 PRCNT
             >;
         };
 
@@ -179,7 +179,7 @@
 &none &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &none
 &none &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &none
 &none &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &none
-                   &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 DEL
+                   &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 PRCNT
             >;
         };
 
@@ -200,9 +200,9 @@
         nums {
             display-name = "nums";
 //  -----------------------------------------------------------------------------------------
-//  |  *  |  7  |  8  |  9  |  +  |     | HOME | PGDN | PGUP | END  |trans|
-//  |  0  |  4  |  5  |  6  |  =  |     | LEFT | DOWN |  UP  | RGHT |trans|
-//  |  /  |  1  |  2  |  3  |  -  |     |trans |trans | ,    | .    |  /  |
+//  |  *  |  7  |  8  |  9  |  +  |     | HOME  | PGDN | PGUP | END  |trans|
+//  |  0  |  4  |  5  |  6  |  =  |     | LEFT  | DOWN |  UP  | RGHT |trans|
+//  |  /  |  1  |  2  |  3  |  -  |     |insert |trans | ,    | .    |  /  |
             bindings = <
 &trans &kp ASTRK &kp N7 &kp N8 &kp N9 &kp PLUS     &trans &trans &trans &trans &trans &trans
 &trans &kp N0    &kp N4 &kp N5 &kp N6 &kp EQUAL    &trans &trans &trans &trans &trans &trans
