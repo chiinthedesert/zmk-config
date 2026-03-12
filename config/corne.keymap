@@ -86,7 +86,8 @@
             flavor = "balanced";
             bindings = <&mo>, <&cw>;
             retro-tap;
-        }
+        };
+
         shftr: ultimate_shiftr {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
