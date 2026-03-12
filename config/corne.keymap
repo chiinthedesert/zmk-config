@@ -51,7 +51,7 @@
             bindings = <&mo>, <&kp>;
         };
 
-        slm: stickey_layer_mod {
+        slm: sticky_key_layer_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
@@ -79,6 +79,14 @@
             bindings = <&caps_word>, <&kp CAPS>;
         };
 
+        cwl: ultimate_caps_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+            bindings = <&mo>, <&cw>;
+            retro-tap;
+        }
         shftr: ultimate_shiftr {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -128,16 +136,26 @@
             bindings = <&kp RET>; 
             key-positions = <8 9>; 
         };
-        /* combo_tab { */
-        /*     timeout-ms = <50>; */
-        /*     key-positions = <26 27>;  */
-        /*     bindings = <&kp TAB>;  */
-        /* }; */
-        /* combo_bspc { */
-        /*     timeout-ms = <50>; */
-        /*     key-positions = <32 33>;  */
-        /*     bindings = <&kp BSPC>;  */
-        /* }; */
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <3 4>; 
+            bindings = <&kp TAB>; 
+        };
+        combo_delete {
+            timeout-ms = <50>;
+            key-positions = <7 8>; 
+            bindings = <&kp DEL>; 
+        };
+        combo_tog {
+            timeout-ms = <50>;
+            key-positions = <26 27>; 
+            bindings = <&tog 7>; 
+        };
+        combo_to {
+            timeout-ms = <50>;
+            key-positions = <26 27>; 
+            bindings = <&to 1>; 
+        };
     };
 
 
@@ -147,20 +165,20 @@
         base {
             display-name = "gallium";
             bindings = <
-&kp TAB    &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp SQT    &kp BSPC
-&cw        &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &tog 7
-&kp PSCRN  &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &to 1
-                   &lm 5 TAB  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 DEL
+&none &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp SQT    &none
+&none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &none
+&none &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
+                   &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 DEL
             >;
         };
 
         qwerty {
             display-name = "qwerty";
             bindings = <
-&kp TAB    &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &kp BSPC
-&cw        &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &tog 7
-&kp PSCRN  &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &to 0
-                   &lm 5 TAB  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 DEL
+&none &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &none
+&none &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &none
+&none &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &none
+                   &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 DEL
             >;
         };
 
@@ -201,13 +219,13 @@
             bindings = <
 &trans &trans &trans &trans &trans &trans     &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
 &trans &trans &trans &trans &trans &trans     &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
-&trans &trans &trans &trans &trans &trans     &trans   &trans    &trans    &trans    &trans &trans
+&trans &trans &trans &trans &trans &trans     &kp INS  &trans    &trans    &trans    &trans &trans
                         &trans  &trans  &trans      &trans  &trans  &trans
             >;
         };
 
-        others {
-            display-name = "others";
+        function {
+            display-name = "function";
 //  -----------------------------------------------------------------------------------------
 //  |     | F7  | F8  | F9  | F12 |      | BT1  | BT2  | BT3  | BT4  | BTCLR |     |
 //  |     | F4  | F5  | F6  | F11 |      | MUTE | VOLDN| VOLUP| PREV | NEXT  |     |
