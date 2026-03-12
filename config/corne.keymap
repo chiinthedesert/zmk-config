@@ -75,18 +75,16 @@
         cw: ultimate_caps {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&caps_word>, <&kp CAPS>;
         };
 
         cwl: ultimate_caps_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <150>;
             flavor = "balanced";
             bindings = <&mo>, <&cw>;
-            retro-tap;
         };
 
         shftr: ultimate_shiftr {
