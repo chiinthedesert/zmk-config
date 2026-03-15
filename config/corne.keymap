@@ -30,6 +30,17 @@
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 36 37 38 39 40 41>;
             hold-trigger-on-release;
         };
+        lhl: layer_home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <175>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <120>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 36 37 38 39 40 41>;
+            hold-trigger-on-release;
+        };
 
         hr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
@@ -170,7 +181,7 @@
             display-name = "gallium";
             bindings = <
 &none &kp B      &kp L      &kp D       &kp C       &kp V       &kp J  &kp Y       &kp O       &kp U      &kp SQT    &none
-&none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G       &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &none
+&none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &lhl 7 G    &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &none
 &none &kp X      &kp Q      &kp M       &kp W       &kp Z       &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
                    &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 PSCRN
             >;
@@ -179,9 +190,9 @@
         qwerty {
             display-name = "qwerty";
             bindings = <
-&none &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y  &kp U       &kp I       &kp O      &kp P         &none
-&none &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &none
-&none &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &none
+&none &kp Q      &kp W      &kp E       &kp R       &kp T       &kp Y  &kp U       &kp I       &kp O      &kp P         &none
+&none &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &lhl 7 G    &kp H  &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &none
+&none &kp Z      &kp X      &kp C       &kp V       &kp B       &kp N  &kp M       &kp COMMA   &kp DOT    &kp FSLH      &none
                    &cwl 5 0  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &lm 5 PSCRN
             >;
         };
