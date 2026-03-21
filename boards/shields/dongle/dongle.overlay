@@ -1,9 +1,5 @@
 / {
-    dongle: dongle {
-        compatible = "zmk,keyboard";
-    };
-
     chosen {
-        zmk,keyboard = &dongle;
+        zmk,keyboard = &zmk_keyboard;
     };
 };
