@@ -1,0 +1,2 @@
+config SHIELD_DONGLE
+    def_bool y

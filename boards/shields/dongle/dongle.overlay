@@ -1,0 +1,9 @@
+/ {
+    chosen {
+        zmk,keyboard = &dongle;
+    };
+};
+
+dongle: dongle {
+    compatible = "zmk,keyboard";
+};
