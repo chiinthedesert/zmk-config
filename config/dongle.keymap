@@ -2,8 +2,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        dongle {
-            display-name = "dongle";
+        default_layer {
             bindings = <>;
         };
     };
