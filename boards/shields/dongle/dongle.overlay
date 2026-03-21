@@ -1,12 +1,18 @@
 / {
     chosen {
-        zmk,keyboard = &kscan0;
+        zmk,keyboard = &kbd;
     };
 
-    kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
-        row-gpios = <>;
-        col-gpios = <>;
+    kbd: keyboard {
+        compatible = "zmk,keyboard";
+
+        matrix_transform = <&default_transform>;
+    };
+
+    default_transform: matrix_transform {
+        compatible = "zmk,matrix-transform";
+        rows = <1>;
+        columns = <1>;
+        map = <0>;
     };
 };
