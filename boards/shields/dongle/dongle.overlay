@@ -1,5 +1,12 @@
 / {
     chosen {
-        zmk,keyboard = &zmk_keyboard;
+        zmk,keyboard = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        row-gpios = <>;
+        col-gpios = <>;
     };
 };
