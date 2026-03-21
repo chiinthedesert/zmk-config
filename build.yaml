@@ -21,7 +21,14 @@
 include:
   - board: nice_nano_v2
     shield: corne_left
+
   - board: nice_nano_v2
     shield: corne_right
+
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: dongle
+    cmake-args: -DCONFIG_ZMK_CONFIG=./config/dongle.conf
+
   - board: nice_nano_v2
     shield: settings_reset

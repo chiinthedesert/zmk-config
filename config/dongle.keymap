@@ -1,0 +1,10 @@
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        dongle {
+            display-name = "dongle";
+            bindings = <>;
+        };
+    };
+};
