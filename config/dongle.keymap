@@ -2,8 +2,8 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            bindings = <>;
+        dongle {
+            bindings = < &foo ... &bar 1 ... &baz 2 3 >;
         };
     };
 };
