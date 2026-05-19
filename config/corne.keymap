@@ -159,10 +159,10 @@
             key-positions = <7 8>; 
             bindings = <&kp DEL>; 
         };
-        combo_mouse {
+        combo_gaming {
             timeout-ms = <50>;
             key-positions = <26 27>; 
-            bindings = <&tog 7>; 
+            bindings = <&tog 8>; 
         };
         combo_to_qwerty {
             timeout-ms = <50>;
@@ -277,5 +277,16 @@
                          &trans   &trans   &trans       &mkp RCLK   &mkp LCLK   &mkp MCLK
             >;
         };
+
+        gaming {
+            display-name = "gaming";
+            bindings = <
+&kp TAB   &kp Q  &kp W &kp E &kp R &kp T   &kp Y  &kp U &kp I     &kp O   &kp P    &kp BSPC
+&kp ESC   &kp A  &kp S &kp D &kp F &kp G   &kp H  &kp J &kp K     &kp L   &kp SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X &kp C &kp V &kp B   &kp N  &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+      PSCRN  &kp SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &cwl 5 0
+            >;
+        };
+
     };
 };
