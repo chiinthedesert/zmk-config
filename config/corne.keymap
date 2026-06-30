@@ -188,7 +188,7 @@
 &none &kp B      &kp L      &kp D       &kp C       &kp V    &kp J  &kp Y       &kp O       &kp U      &kp SQT    &none
 &none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G    &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &none
 &none &kp X      &kp Q      &kp M       &kp W       &kp Z    &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
-                   &lm 7 PSCRN  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &cwl 5 0
+                   &lm 7 PSCRN  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &kp F
             >;
         };
 
