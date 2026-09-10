@@ -162,19 +162,7 @@
         combo_drawing {
             timeout-ms = <50>;
             key-positions = <26 27>; 
-            bindings = <&tog 8>; 
-        };
-        combo_to_qwerty {
-            timeout-ms = <50>;
-            key-positions = <32 33>; 
-            layers = <0>;
-            bindings = <&to 1>; 
-        };
-        combo_to_gallium {
-            timeout-ms = <50>;
-            key-positions = <32 33>; 
-            layers = <1>;
-            bindings = <&to 0>; 
+            bindings = <&tog 1>; 
         };
     };
 
@@ -192,13 +180,13 @@
             >;
         };
 
-        qwerty {
-            display-name = "qwerty";
+        drawing {
+            display-name = "drawing";
             bindings = <
-&none &kp Q      &kp W      &kp E       &kp R       &kp T    &kp Y &kp U       &kp I       &kp O      &kp P         &none
-&none &hl LGUI A &hl LALT S &hl LSHFT D &hl LCTRL F &kp G    &kp H &hr RCTRL J &hr RSHFT K &hr RALT L &hr RGUI SEMI &none
-&none &kp Z      &kp X      &kp C       &kp V       &kp B    &kp N &kp M       &kp COMMA   &kp DOT    &kp FSLH      &none
-                   &lm 7 PSCRN  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &cwl 5 0
+&trans   &kp TAB   &kp Q &kp W &kp E &kp R   &kp Y  &kp U &kp I     &kp O   &kp P    &trans
+&trans   &kp ESC   &kp A &kp S &kp D &kp F   &kp H  &kp J &kp K     &kp L   &kp SEMI &trans
+&trans   &kp LSHFT &kp Z &kp X &kp C &kp V   &kp N  &kp M &kp COMMA &kp DOT &kp FSLH &trans
+         &lm 7 PSCRN  &lm 3 LC(Z) &lm 2 BSPC       &lm 2 BSPC &lm 4 SPACE &cwl 5 0
             >;
         };
 
@@ -218,10 +206,6 @@
 
         nums {
             display-name = "nums";
-//  -----------------------------------------------------------------------------------------
-//  |  *  |  7  |  8  |  9  |  +  |     | HOME  | PGDN | PGUP | END  |trans|
-//  |  0  |  4  |  5  |  6  |  =  |     | LEFT  | DOWN |  UP  | RGHT |trans|
-//  |  /  |  1  |  2  |  3  |  -  |     |insert |trans | ,    | .    |  /  |
             bindings = <
 &trans &kp ASTRK &kp N7 &kp N8 &kp N9 &kp PLUS     &trans &trans &trans &trans &trans &trans
 &trans &kp N0    &kp N4 &kp N5 &kp N6 &kp EQUAL    &trans &trans &trans &trans &trans &trans
@@ -232,10 +216,6 @@
 
         nav {
             display-name = "nav";
-//  -----------------------------------------------------------------------------------------
-//  |  *  |  7  |  8  |  9  |  +  |     | HOME | PGDN | PGUP | END  |trans|
-//  |  0  |  4  |  5  |  6  |  =  |     | LEFT | DOWN |  UP  | RGHT |trans|
-//  |  /  |  1  |  2  |  3  |  -  |     |trans |trans | ,    | .    |  /  |
             bindings = <
 &trans &trans &trans &trans &trans &trans     &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
 &trans &trans &trans &trans &trans &trans     &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
@@ -246,10 +226,6 @@
 
         function {
             display-name = "function";
-//  -----------------------------------------------------------------------------------------
-//  |     | F7  | F8  | F9  | F12 |      | BT1  | BT2  | BT3  | BT4  | BTCLR |     |
-//  |     | F4  | F5  | F6  | F11 |      | MUTE | VOLDN| VOLUP| PREV | NEXT  |     |
-//  |     | F1  | F2  | F3  | F10 |      |PSCRN | BRIDN| BRIUP| PLAY | SLEEP |     |
             bindings = <
 &trans &trans &kp F7 &kp F8 &kp F9 &kp F12      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR  &trans
 &trans &trans &kp F4 &kp F5 &kp F6 &kp F11      &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV   &kp C_NEXT  &trans
@@ -277,16 +253,5 @@
                          &trans   &trans   &trans       &mkp RCLK   &mkp LCLK   &mkp MCLK
             >;
         };
-
-        drawing {
-            display-name = "drawing";
-            bindings = <
-&trans   &kp TAB   &kp Q &kp W &kp E &kp R   &kp Y  &kp U &kp I     &kp O   &kp P    &trans
-&trans   &kp ESC   &kp A &kp S &kp D &kp F   &kp H  &kp J &kp K     &kp L   &kp SEMI &trans
-&trans   &kp LSHFT &kp Z &kp X &kp C &kp V   &kp N  &kp M &kp COMMA &kp DOT &kp FSLH &trans
-         &lm 7 PSCRN  &lm 3 SPACE &slish 2 2       &lm 2 BSPC &lm 4 SPACE &cwl 5 0
-            >;
-        };
-
     };
 };
