@@ -30,6 +30,18 @@
 
             bindings = <&sk LS(LGUI) &sl 3>;
         };
+        LS_LG_hold: shift_gui_number_hold {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+
+            wait-ms = <0>;
+
+            bindings
+                = <&macro_press &mo 3 &kp LSHFT &kp LGUI>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LGUI &kp LSHFT &mo 3>
+                ;
+        };
     };
 
     behaviors {
@@ -85,11 +97,14 @@
             flavor = "balanced";
             bindings = <&mo>, <&sl>;
         };
-        td_gui: tap_dance_gui {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <175>;
-            bindings = <&LG_sl>, <&LS_LG_sl>;
+        gui_num: gui_num {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+
+            bindings = <&LS_LG_hold>, <&LG_sl>;
         };
     };
 
@@ -146,7 +161,7 @@
             display-name = "gallium";
             bindings = <
 &none &kp B      &kp L      &kp D       &kp C       &kp V    &kp J  &kp Y       &kp O       &kp U      &kp SQT    &none
-&none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G    &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &td_gui
+&none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G    &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &gui_num 0 0
 &none &kp X      &kp Q      &kp M       &kp W       &kp Z    &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
                    &lm 7 PSCRN  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &cwl 5 0
             >;
