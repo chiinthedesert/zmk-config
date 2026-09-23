@@ -30,18 +30,6 @@
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 36 37 38 39 40 41>;
             hold-trigger-on-release;
         };
-        lhl: layer_home_row_mod_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <175>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <120>;
-            bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 36 37 38 39 40 41>;
-            hold-trigger-on-release;
-        };
-
         hr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -62,27 +50,6 @@
             bindings = <&mo>, <&kp>;
         };
 
-        slm: sticky_key_layer_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <175>;
-            quick-tap-ms = <0>;
-            flavor = "hold-preferred";
-            bindings = <&mo>, <&sk>;
-        };
-
-        td_c: tap_dance_capsword {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&sk RSHFT>, <&caps_word>;
-        };
-        td_cl: tap_dance_capslock {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&sk LSHFT>, <&kp CAPS>;
-        };
         cw: ultimate_caps {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -97,21 +64,6 @@
             flavor = "balanced";
             bindings = <&mo>, <&cw>;
         };
-
-        shftr: ultimate_shiftr {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            bindings = <&kp>, <&td_c>;
-        };
-        shftl: ultimate_shiftl {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            bindings = <&kp>, <&td_cl>;
-        };
         slish: stickish_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -119,7 +71,12 @@
             flavor = "balanced";
             bindings = <&mo>, <&sl>;
         };
-
+        td_num: tap_dance_num {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lm 3 SPACE>, <&sl 3>;
+        };
     };
 
     combos {
@@ -176,7 +133,7 @@
 &none &kp B      &kp L      &kp D       &kp C       &kp V    &kp J  &kp Y       &kp O       &kp U      &kp SQT    &none
 &none &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G    &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &none
 &none &kp X      &kp Q      &kp M       &kp W       &kp Z    &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
-                   &lm 7 PSCRN  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &cwl 5 0
+                   &lm 7 PSCRN  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &td_num &cwl 5 0
             >;
         };
 
@@ -192,10 +149,6 @@
 
         syms {
             display-name = "syms";
-//  -----------------------------------------------------------------------------------------
-//  |  '  |  <  |  >  |  "  |  ^  |     |  $  |  %  |  {  |  }  |  ?  |
-//  |  !  |  -  |  +  |  =  |  #  |     |  |  |  :  |  (  |  )  |  ;  |
-//  |  ~  |  /  |  *  |  \  |  `  |     |  _  |  &  |  [  |  ]  |  @  |
             bindings = <
 &trans &kp SQT   &kp LT    &kp GT    &kp DQT   &kp CARET   &kp DLLR  &kp PRCNT &kp LBRC &kp RBRC &kp QMARK &trans
 &trans &kp EXCL  &kp MINUS &kp PLUS  &kp EQUAL &kp HASH    &kp PIPE  &kp COLON &kp LPAR &kp RPAR &kp SEMI  &trans
