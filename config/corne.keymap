@@ -79,15 +79,6 @@
             flavor = "balanced";
             bindings = <&mo>, <&sl>;
         };
-        gui_num: gui_num {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-
-            bindings = <&LS_LG_hold>, <&LG_sl>;
-        };
     };
 
     combos {
