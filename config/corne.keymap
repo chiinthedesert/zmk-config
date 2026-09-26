@@ -163,9 +163,9 @@
         nums {
             display-name = "nums";
             bindings = <
-&trans &trans &kp N7 &kp N8 &kp N9 &trans    &trans    &kp ASTRK      &kp LT          &kp GT        &trans &trans
-&trans &trans &kp N4 &kp N5 &kp N6 &trans    &kp EQUAL &hr RCTRL PLUS &hr RSHFT MINUS &hr RALT FSLH &trans &trans
-&trans &trans &kp N1 &kp N2 &kp N3 &trans    &trans    &trans         &trans          &trans        &trans &trans
+&trans &trans &kp N7 &kp N8 &kp N9 &trans    &trans    &trans          &kp LT          &kp GT        &trans         &trans
+&trans &trans &kp N4 &kp N5 &kp N6 &trans    &trans    &hr RCTRL EQUAL &hr RSHFT PLUS &hr RALT MINUS &hr RGUI ASTRK &trans
+&trans &trans &kp N1 &kp N2 &kp N3 &trans    &trans    &trans          &trans          &trans        &trans         &trans
                         &trans  &trans  &trans      &trans  &trans  &trans
             >;
         };
