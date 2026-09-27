@@ -136,17 +136,17 @@
 &none     &kp B      &kp L      &kp D       &kp C       &kp V    &kp J  &kp Y       &kp O       &kp U      &kp SEMI   &none
 &kp GRAVE &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G    &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &kp SQT
 &none     &kp X      &kp Q      &kp M       &kp W       &kp Z    &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
-                   &lm 7 PSCRN  &lm 4 SPACE &slish 2 2       &lm 2 BSPC &lm 3 SPACE &cwl 5 0
+                   &lm 7 PSCRN  &lm 4 SPACE &slish 2 2                 &lm 2 BSPC &lm 3 SPACE &cwl 5 0
             >;
         };
 
         drawing {
             display-name = "drawing";
             bindings = <
-&trans   &kp Q    &kp LC(C) &kp LC(V) &kp R     &kp T   &kp Y  &kp U &kp I     &kp O   &kp P    &trans
-&trans   &kp LGUI &kp LALT  &kp LSHFT &kp LCTRL &kp G   &kp H  &kp J &kp K     &kp L   &kp SEMI &trans
-&trans   &kp Z    &kp X     &kp C     &kp V     &kp B   &kp N  &kp M &kp COMMA &kp DOT &kp FSLH &trans
-         &lm 7 PSCRN  &lm 3 LC(Z) &lm 2 BSPC       &lm 2 BSPC &lm 4 SPACE &cwl 5 0
+&none     &kp B      &kp L      &kp D       &kp C       &kp V    &kp J  &kp Y       &kp O       &kp U      &kp SEMI   &none
+&kp BSPC  &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G    &kp P  &hr RCTRL H &hr RSHFT A &hr RALT E &hr RGUI I &kp SQT
+&none     &kp LG(N1) &kp LG(N2) &kp LG(N3)  &kp LC(V)   &kp Z    &kp K  &kp F       &kp COMMA   &kp DOT    &kp FSLH   &none
+                   &lm 7 LC(Z)  &lm 4 LC(C) &lm 2 DEL                   &lm 2 BSPC &lm 3 SPACE &cwl 5 0
             >;
         };
 
