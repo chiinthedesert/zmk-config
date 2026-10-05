@@ -106,13 +106,13 @@
 
         combo_sys0 {
             timeout-ms = <50>;
-            key-positions = <36 37 38>;
+            key-positions = <37 38>;
             bindings = <&mo SYS>;
         };
 
         combo_sys1 {
             timeout-ms = <50>;
-            key-positions = <39 40 41>;
+            key-positions = <39 40>;
             bindings = <&mo SYS>;
         };
 
