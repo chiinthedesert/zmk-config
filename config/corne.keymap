@@ -88,7 +88,7 @@
         shtd: shift_tap_dance {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&sk LSHIFT>, <&caps_word>;
         };
 
@@ -96,7 +96,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <175>;
+            tapping-term-ms = <150>;
             bindings = <&mo>, <&shtd>;
         };
     };
@@ -230,7 +230,7 @@
             display-name = "mouse";
             bindings = <
 &trans &trans   &trans   &trans    &trans    &trans    &trans         &trans         &mkp MB4     &mkp MB5        &trans &trans
-&trans &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &trans    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
+&trans &trans   &kp LGUI &kp LALT  &kp LCTRL &trans    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans &trans
 &trans &trans   &trans   &trans    &trans    &trans    &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &trans &trans
                          &trans   &trans   &trans       &mkp RCLK   &mkp LCLK   &mkp MCLK
             >;
