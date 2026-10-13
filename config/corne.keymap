@@ -11,11 +11,10 @@
 #define SYMS 1
 #define NUMS 2
 #define NAV 3
-#define TRANSITION 4
-#define SYS 5
-#define FUNCTION 6
-#define MOUSE 7
-#define DRAWING 8
+#define SYS 4
+#define FUNC 5
+#define MOUSE 6
+#define DRAWING 7
 
 &mmv {
     time-to-max-speed-ms = <350>;
@@ -146,11 +145,6 @@
             bindings = <&kp DEL>;
         };
 
-        combo_transition {
-            timeout-ms = <50>;
-            key-positions = <26 27>;
-            bindings = <&tog TRANSITION>;
-        };
     };
 
     keymap {
@@ -159,9 +153,9 @@
         gallium {
             display-name = "gallium";
             bindings = <
-&none &kp B       &kp L       &kp D        &kp C        &kp V    &kp J &kp Y        &kp O        &kp U       &kp SEMI     &none
+&none &lm FUNC B  &kp L       &kp D        &kp C        &kp V    &kp J &kp Y        &kp O        &kp U       &kp SEMI     &none
 &none &hl LGUI N  &hl LALT R  &hl LSHFT T  &hl LCTRL S  &kp G    &kp P &hr RCTRL H  &hr RSHFT A  &hr RALT E  &hr RGUI I   &none
-&none &kp X       &kp Q       &kp M        &kp W        &kp Z    &kp K &kp F        &kp COMMA    &kp DOT     &kp FSLH     &none
+&none &lm MOUSE X &kp Q       &kp M        &kp W        &kp Z    &kp K &kp F        &kp COMMA    &kp DOT     &kp FSLH     &none
                        &none &lm NAV SPACE &shtdl SYMS 0                 &lm SYMS BSPC &lm NUMS SPACE &none
             >;
         };
@@ -196,16 +190,6 @@
             >;
         };
 
-        transition {
-            display-name = "transition";
-            bindings = <
-&trans &trans &trans &trans &trans &trans    &trans    &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &trans &trans    &trans    &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &trans &trans    &kp PSCRN &trans &trans &trans &trans &trans
-                     &trans &mo MOUSE &trans  &trans &mo FUNCTION &trans
-            >;
-        };
-
         sys {
             display-name = "sys";
             bindings = <
@@ -217,9 +201,9 @@
         };
 
         function {
-            display-name = "function";
+            display-name = "func";
             bindings = <
-&trans &trans &kp F7 &kp F8 &kp F9 &kp F12    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR   &trans
+&trans &trans &kp F7 &kp F8 &kp F9 &kp F12    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR  &trans
 &trans &trans &kp F4 &kp F5 &kp F6 &kp F11    &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV   &kp C_NEXT  &trans
 &trans &trans &kp F1 &kp F2 &kp F3 &kp F10    &kp PSCRN    &kp C_BRI_DN &kp C_BRI_UP &kp C_PP     &kp C_SLEEP &trans
                      &trans &trans &trans        &trans &trans &trans
