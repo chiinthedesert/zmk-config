@@ -226,7 +226,7 @@
 &none    &kp B      &kp L      &kp D       &kp C       &kp V    &kp J &kp Y        &kp O       &kp U      &kp SEMI   &none
 &kp BSPC &hl LGUI N &hl LALT R &hl LSHFT T &hl LCTRL S &kp G    &kp P &hr RCTRL H  &hr RSHFT A &hr RALT E &hr RGUI I &kp SQT
 &none    &kp LG(N1) &kp LG(N2) &kp LG(N3)  &kp LC(V)   &kp Z    &kp K &kp F        &kp COMMA   &kp DOT    &kp FSLH   &none
-                 &lm MOUSE LC(Z) &lm TRANSITION LC(C) &lm NUMS DEL    &lm NUMS BSPC &lm NAV SPACE &cwl SYS 0
+                     &trans &trans &trans        &trans &trans &trans
             >;
         };
     };
